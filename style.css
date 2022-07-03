@@ -2,16 +2,34 @@
     box-sizing: border-box;
 }
 body{
-    font-family: 'Poppins';
+    font-family: 'Poppins',Poppins, sans-serif;
     margin: 10px 50px;
     overflow-x: hidden;
 
 }
+.search{
+    width: auto;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1.5em;
+    padding: 5px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins',Poppins,sans-serif;
+    
+}
 #btn{
     background-color: black;
     color: #fff;
-    padding: 15px;
+    padding: 15px 100px;
     align-items: center;
+}
+#btn:hover{
+    opacity: 0.9;
+}
+#btn:active{
+    transform: scale(0.98);
 }
 li{
     text-decoration: none;
