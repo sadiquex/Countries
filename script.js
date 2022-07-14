@@ -1,44 +1,66 @@
+// getting dom elements
+const refresh = document.getElementById('btn');
+const input = document.getElementById('search');
 
-button = document.getElementById('btn')
+// call filter in search input
+input.addEventListener('keydown', filterCountries)
+// an event to refresh list
+refresh.addEventListener('click', getData)
 
-// click event to call function
-button.addEventListener('click', getData);
+function filterCountries(e){
+    const userTyped = e.target.value.toLowerCase();
+    // console.log(text)
+    document.querySelectorAll('li').forEach(
+        function(country){
+            const search =country.firstChild.textContent;
+            // if else statement to display countries which contain letters with similar letters/index more than -1
+            if(search.toLowerCase().indexOf(userTyped) > -1){
+                country.style.display = 'block';
+            }else{
+                country.style.display = 'none';
+            }
+        }
+    );
+}
 
+getData()
+
+// fetch data from api with xhr
 function getData(){
     xhr = new XMLHttpRequest();
-
-
 
     xhr.onload = function() {
         if(this.status === 200){
             resp = JSON.parse(this.responseText);
             // console.log(resp[0].name)
+            // console.log(resp)
 
             resp.forEach(country => {
 
-                // console.log(country.name)
+                const ul = document.querySelector('.names-list');
+                const li = ul.getElementsByTagName('li');
 
+                // console.log(country.name)
                 const storeName = document.createElement('li');
-                const storeImage = document.createElement('img')
+                const storeImage = document.createElement('img');
+                storeImage.classList.add('flags');
                  
                 storeName.innerHTML = country.name;
                 storeImage.src = country.flag;
                 storeName.appendChild(storeImage);
-                document.querySelector('.names').appendChild(storeName);
-
+                ul.appendChild(storeName);
             })
         }else{
-            console.log('An err occured')
+            console.log('An err occured');
         }
     }
-
-
     xhr.open('GET', 'https://restcountries.com/v2/all', true);
 
     xhr.send();
 
 } 
 
-
-
-// https://restcountries.eu/rest/v2/all
+// fixes to make
+/* - when user types and erases last letter, the similar country doesnt show anymore,until user deletes last 2 letters
+    - when the refresh button is clicked, the input section should be cleared
+    */
