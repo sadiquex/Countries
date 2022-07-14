@@ -18,7 +18,7 @@ function filterCountries(e){
     
     document.querySelectorAll('li').forEach(
         function(country){
-            const search =country.firstChild.textContent;
+            const search = country.firstChild.textContent;
             // if else statement to display countries which contain letters with similar letters/index more than -1
             if(search.toLowerCase().indexOf(userTyped) > -1){
                 country.style.display = 'block';
@@ -28,8 +28,6 @@ function filterCountries(e){
         }
     );
 }
-
-getData()
 
 // fetch data from api with xhr
 function getData(){
@@ -65,6 +63,9 @@ function getData(){
     xhr.send();
 
 } 
+
+getData()
+
 
 // fixes to make
 /* - when user types and erases last letter, the similar country doesnt show anymore,until user deletes last 2 letters
