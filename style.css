@@ -3,11 +3,16 @@
 }
 body{
     font-family: 'Poppins',Poppins, sans-serif;
-    margin: 10px 50px;
-    overflow-x: hidden;
-
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 10px auto;
+    overflow: auto;
 }
-.search{
+#search{
     width: auto;
     background-color: transparent;
     border-radius: 5px;
@@ -16,10 +21,10 @@ body{
     margin: 15px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: 'Poppins',Poppins,sans-serif;
-    
 }
-#btn{
+#btn, #filter{
     background-color: black;
     color: #fff;
     padding: 15px 100px;
@@ -31,12 +36,33 @@ body{
 #btn:active{
     transform: scale(0.98);
 }
+.countries{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.names li:hover{
+    font-weight: bold;
+}
+.names-list{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+}
 li{
     text-decoration: none;
     list-style: none;
 }
-
 img{
+    margin: 30px auto;
     width: 100px;
     height: 100px;
+}
+.flags{
+    border-radius: 50%;
+
+}
+.flags:hover{
+    transform: scale(0.95);
+    opacity: 80%;
 }
