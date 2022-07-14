@@ -5,11 +5,17 @@ const input = document.getElementById('search');
 // call filter in search input
 input.addEventListener('keydown', filterCountries)
 // an event to refresh list
-refresh.addEventListener('click', getData)
+refresh.addEventListener('click', clearInput)
+
+function clearInput() {
+    input.value = '';
+
+    getData();
+}
 
 function filterCountries(e){
     const userTyped = e.target.value.toLowerCase();
-    // console.log(text)
+    
     document.querySelectorAll('li').forEach(
         function(country){
             const search =country.firstChild.textContent;
@@ -62,5 +68,5 @@ function getData(){
 
 // fixes to make
 /* - when user types and erases last letter, the similar country doesnt show anymore,until user deletes last 2 letters
-    - when the refresh button is clicked, the input section should be cleared
+    - the input field is cleared, now the countries should be set to default
     */

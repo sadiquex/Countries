@@ -15,9 +15,9 @@ body{
 #search{
     width: auto;
     background-color: transparent;
-    border-radius: 5px;
-    font-size: 1.5em;
-    padding: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 3px 10px;
     margin: 15px 0;
     display: flex;
     justify-content: center;
