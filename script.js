@@ -5,13 +5,15 @@ const input = document.getElementById('search');
 // call filter in search input
 input.addEventListener('keydown', filterCountries)
 // an event to refresh list
-refresh.addEventListener('click', clearInput)
+refresh.addEventListener('click', () => {
+    location.reload();
+})
 
-function clearInput() {
-    input.value = '';
+// function clearInput() {
+//     input.value = '';
 
-    getData();
-}
+//     getData();
+// }
 
 function filterCountries(e){
     const userTyped = e.target.value.toLowerCase();
